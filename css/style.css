@@ -716,7 +716,6 @@ a:focus {
           flex-direction: column;
   -webkit-box-align: start;
       -ms-flex-align: start;
-          align-items: flex-start;
 }
 
 .info_section .info_news .info_contact a {
