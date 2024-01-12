@@ -29,7 +29,7 @@
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
   
-  <script type="text/javascript" src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
   
 </head>
 
@@ -76,7 +76,13 @@
   </div>
 
   <!-- book section -->
-
+<section class="service_section">
+      <div class="btn-box">
+        <a href="">
+          Connect with Fitness Tracker
+        </a>
+      </div>
+  </section>
   <section class="layout_padding">
     <div class="container">
     	<div class="heading_container heading_center">
@@ -86,8 +92,7 @@
         </h2><br>
       </div>
       <div class="row">
-        <div id="chartContainer" style="height: 300px; width: 100%;">
-  </div>
+  		<canvas id="myChart" style="width:100%;height:600px"></canvas>
       </div>
     </div>
   </section>
@@ -121,7 +126,16 @@
   </section>
 
   <!-- end info section -->
-
+<div class="box" style="position: fixed;
+	  right: 0;
+	  bottom: 0;
+	  display: flex;
+	  align-items: flex-end;
+	  justify-content: center;">
+	        <a href="#">
+	         <img src="images/mic.png" alt="" />
+	        </a>
+	 </div>
   <!-- footer section -->
   <footer class="container-fluid footer_section">
     <div class="container">
@@ -147,37 +161,27 @@
   <!-- End Google Map -->
   
   <script type="text/javascript">
-  window.onload = function () {
-    var chart = new CanvasJS.Chart("chartContainer",
-    {
+  const xValues = ["05/01/2024", "06/01/2024", "07/01/2024", "06/01/2024", "07/01/2024", "08/01/2024", "09/01/2024", "10/01/2024", "11/01/2024", "12/01/2024"];
+  const yValues = [55, 49, 58, 54, 55, 50, 61, 50,54, 55];
+  const barColors = ["red", "green","blue","orange","brown","yellow","grey","black","pink","maroon"];
 
-      axisX:{
-       title: "axisX Title"
-      },
-      axisY:{
-    	  title : "Primary Y Axis"
-    	 },
-
-      data: [
-      {
-        type: "column",
-        dataPoints: [
-        { x: 10, y: 71 },
-        { x: 20, y: 55},
-        { x: 30, y: 50 },
-        { x: 40, y: 65 },
-        { x: 50, y: 95 },
-        { x: 60, y: 68 },
-        { x: 70, y: 28 },
-        { x: 80, y: 34 },
-        { x: 90, y: 14}
-        ]
+  new Chart("myChart", {
+    type: "bar",
+    data: {
+      labels: xValues,
+      datasets: [{
+        backgroundColor: barColors,
+        data: yValues
+      }]
+    },
+    options: {
+      legend: {display: false},
+      title: {
+        display: true,
+        text: "Average Heart Rate (Beat per minutes)"
       }
-      ]
-    });
-
-    chart.render();
-  }
+    }
+  });
   </script>
 </body>
 
