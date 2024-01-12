@@ -71,7 +71,7 @@ body {
 
 /*header section*/
 .hero_area {
-  min-height: 100vh;
+  min-height: auto;
   background-color: #d0e6fc;
   background-color: #f5f7f8;
 }
